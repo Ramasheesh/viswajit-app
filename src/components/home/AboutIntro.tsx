@@ -2,15 +2,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 
 const capabilities = [
-  "2D Lighting Design & Planning",
-  "3D Photorealistic Visualization",
-  "Architectural & Interior Lighting",
+  "2D Lighting Design & CAD Planning",
+  "3D Photorealistic Dialux Simulation",
+  "Architectural & Façade Illumination",
   "Complete Electrical Contracting",
-  "Turnkey Project Delivery",
-  "Post-Project Maintenance",
+  "Turnkey Execution & Commissioning",
+  "Post-Installation Safety Audits",
 ];
 
 export default function AboutIntro() {
@@ -19,78 +19,61 @@ export default function AboutIntro() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
+      className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-zinc-950"
       id="about-intro"
       aria-labelledby="about-intro-heading"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+      {/* Background ambient lighting effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none" />
       <div
-        className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute -right-40 top-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)",
           filter: "blur(90px)",
         }}
       />
 
-      <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            className="lg:col-span-7"
+            initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="section-eyebrow">
-              <span className="section-eyebrow-line" />
-              <span className="section-eyebrow-text">About Us</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 mb-5 text-xs sm:text-sm font-bold uppercase tracking-widest">
+              <Sparkles size={15} />
+              <span>About Viswajit</span>
             </div>
 
             <h2
               id="about-intro-heading"
-              className="font-extrabold tracking-tight mb-8"
-              style={{
-                fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-                color: "var(--text-primary)",
-                lineHeight: 1.08,
-              }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight mb-6"
             >
-              We don&apos;t just
-              <br />
-              <span className="text-gradient">install lights.</span>
-              <br />
-              We design space.
+              We don&apos;t just install fixtures.{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+                We engineer illumination.
+              </span>
             </h2>
 
-            <p
-              className="text-xl leading-relaxed mb-6"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              From concept to installation, we transform spaces through intelligent lighting design and precision electrical execution.
+            <p className="text-base sm:text-lg text-zinc-200 leading-relaxed mb-4">
+              From architectural blueprint to the final luminous atmosphere, we transform spaces through rigorous lighting photometrics and certified electrical contracting.
             </p>
-            <p
-              className="text-lg leading-relaxed mb-12"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Trusted by architects, interior designers, builders and property owners across North India,
-              Viswajit Electrical &amp; Lighting is a complete professional lighting and electrical contractor
-              — combining design studio expertise with certified on-ground execution.
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-8">
+              Trusted by architects, interior designers, property developers, and luxury homeowners across North India,
+              Viswajit Electrical &amp; Lighting delivers turnkey solutions combining dedicated studio design with licensed, safety-audited on-site execution.
             </p>
 
-            {/* Capabilities */}
-            <div className="flex flex-wrap gap-3 mb-12">
+            {/* Capabilities badges */}
+            <div className="flex flex-wrap gap-3 mb-10">
               {capabilities.map((cap) => (
                 <div
                   key={cap}
-                  className="flex items-center gap-2.5 text-sm md:text-base px-4 py-2.5 rounded-full"
-                  style={{
-                    background: "var(--surface-1)",
-                    border: "1px solid var(--border-default)",
-                    color: "var(--text-secondary)",
-                  }}
+                  className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-zinc-200 px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 shadow-sm hover:border-amber-500/40 transition-colors"
                 >
-                  <CheckCircle size={15} style={{ color: "var(--accent)" }} />
-                  {cap}
+                  <CheckCircle2 size={16} className="text-amber-400 shrink-0" />
+                  <span>{cap}</span>
                 </div>
               ))}
             </div>
@@ -98,101 +81,70 @@ export default function AboutIntro() {
             <Link
               href="/about"
               id="about-learn-more"
-              className="inline-flex items-center gap-2.5 font-bold text-lg transition-all duration-200 hover:gap-4"
-              style={{ color: "var(--accent)" }}
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 hover:-translate-y-0.5"
             >
-              Learn our story
+              Learn Our Full Story
               <ArrowRight size={20} />
             </Link>
           </motion.div>
 
-          {/* Right — Brand card */}
+          {/* Right Column: Studio Excellence Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            className="lg:col-span-5"
+            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative"
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div
-              className="rounded-2xl p-10 md:p-12 relative overflow-hidden"
-              style={{
-                background: "var(--surface-1)",
-                border: "1px solid var(--border-default)",
-              }}
-            >
-              {/* Top accent */}
-              <div
-                className="absolute top-0 left-0 right-0 h-1"
-                style={{ background: "linear-gradient(90deg, var(--accent), transparent)" }}
-              />
+            <div className="rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-zinc-900 border border-zinc-700/80 shadow-2xl">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600" />
 
-              {/* Corner glow */}
+              {/* Corner ambient glow */}
               <div
-                className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full pointer-events-none"
+                className="absolute -bottom-24 -right-24 w-52 h-52 rounded-full pointer-events-none"
                 style={{
-                  background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%)",
                   filter: "blur(40px)",
                 }}
               />
 
               <div className="relative z-10">
-                {/* Big number */}
-                <div className="mb-12">
-                  <div
-                    className="font-black leading-none mb-3"
-                    style={{
-                      fontSize: "clamp(5rem, 10vw, 7rem)",
-                      background: "linear-gradient(135deg, var(--accent-light), var(--accent))",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
+                {/* Big Experience Milestone */}
+                <div className="mb-8">
+                  <div className="font-black text-6xl sm:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200 leading-none mb-2">
                     15+
                   </div>
-                  <div
-                    className="font-bold text-2xl md:text-3xl"
-                    style={{ color: "var(--text-primary)" }}
-                  >
+                  <div className="font-extrabold text-2xl text-white">
                     Years of Excellence
+                  </div>
+                  <div className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-amber-400 mt-1">
+                    Delivered Across North India
                   </div>
                 </div>
 
-                {/* Features */}
-                <div className="space-y-8">
+                {/* Core Workflow Pillars */}
+                <div className="space-y-6">
                   {[
                     {
-                      title: "Design-First Approach",
-                      desc: "Every project starts with a 2D plan and 3D visualization before a single wire is laid.",
+                      title: "Design-First Engineering",
+                      desc: "2D CAD layouts and 3D Dialux raytracing validate beam angles, lux levels, and glare (UGR < 19) before physical wiring.",
                     },
                     {
-                      title: "Certified Execution",
-                      desc: "Our installation team is trained, certified and supervised on every project site.",
+                      title: "Certified Master Execution",
+                      desc: "Govt-licensed electrical engineers ensure flawless load balancing, premium conduits, and code compliance on every site.",
                     },
                     {
-                      title: "Full-Cycle Service",
-                      desc: "Consultation → Design → Material → Installation → Testing → Maintenance.",
+                      title: "Turnkey Accountability",
+                      desc: "One dedicated partner for consultation, procurement, installation, photometric commissioning, and warranty support.",
                     },
                   ].map((item) => (
-                    <div key={item.title} className="flex gap-5 group">
-                      <div
-                        className="w-1.5 rounded-full shrink-0 transition-all duration-300 group-hover:w-2"
-                        style={{
-                          background: "linear-gradient(180deg, var(--accent), var(--accent-dark))",
-                          minHeight: "3.5rem",
-                        }}
-                      />
+                    <div key={item.title} className="flex gap-4 group">
+                      <div className="w-1.5 rounded-full shrink-0 bg-gradient-to-b from-amber-400 to-amber-600 self-stretch" />
                       <div>
-                        <div
-                          className="font-bold text-lg mb-2"
-                          style={{ color: "var(--text-primary)" }}
-                        >
+                        <div className="font-bold text-base sm:text-lg text-white mb-1 group-hover:text-amber-300 transition-colors">
                           {item.title}
                         </div>
-                        <div
-                          className="text-base leading-relaxed"
-                          style={{ color: "var(--text-muted)" }}
-                        >
+                        <div className="text-sm text-zinc-300 leading-relaxed">
                           {item.desc}
                         </div>
                       </div>

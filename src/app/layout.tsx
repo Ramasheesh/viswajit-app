@@ -87,18 +87,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className="font-sans antialiased"
-        style={{
-          background: "var(--bg-primary)",
-          color: "var(--text-primary)",
-        }}
-      >
+      <body className="font-sans antialiased bg-zinc-950 text-zinc-100 selection:bg-amber-500 selection:text-black min-h-screen w-full overflow-x-hidden">
         <ThemeProvider>
           <ScrollProgress />
           <CursorSpotlight />
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen w-full overflow-x-hidden">{children}</main>
           <Footer />
           <MobileStickyBar />
         </ThemeProvider>

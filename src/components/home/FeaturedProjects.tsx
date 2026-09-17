@@ -33,52 +33,45 @@ export default function FeaturedProjects() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
+      className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-zinc-950"
       id="featured-projects"
       aria-labelledby="projects-heading"
     >
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-15" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full">
         {/* Header */}
         <motion.div
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 24 }}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <div>
-            <div className="section-eyebrow">
-              <span className="section-eyebrow-line" />
-              <span className="section-eyebrow-text">Our Work</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">
+              <span>Our Portfolio</span>
             </div>
             <h2
               id="projects-heading"
-              className="font-extrabold tracking-tight"
-              style={{
-                fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-                color: "var(--text-primary)",
-                lineHeight: 1.08,
-              }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight"
             >
-              Featured <span className="text-gradient">Projects</span>
+              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">Projects</span>
             </h2>
           </div>
           <Link
             href="/projects"
             id="projects-view-all"
-            className="inline-flex items-center gap-2.5 font-semibold text-lg self-start md:self-auto transition-all duration-200 hover:gap-4"
-            style={{ color: "var(--accent)" }}
+            className="inline-flex items-center gap-2 font-bold text-base text-amber-400 self-start md:self-auto transition-all duration-200 hover:gap-3 hover:text-amber-300"
           >
             View all projects
-            <ArrowRight size={20} />
+            <ArrowRight size={18} />
           </Link>
         </motion.div>
 
         {/* Project grid — Bento style */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -92,13 +85,11 @@ export default function FeaturedProjects() {
               <Link
                 href={`/projects/${project.slug}`}
                 id={`project-card-${project.slug}`}
-                className="group block relative overflow-hidden rounded-2xl h-full"
-                style={{
-                  aspectRatio: i === 0 ? "16/9" : "4/3",
-                  minHeight: i === 0 ? "380px" : "300px",
-                }}
+                className={`group block relative overflow-hidden rounded-3xl w-full border border-zinc-800 shadow-2xl transition-all duration-300 hover:border-amber-500/50 hover:shadow-amber-500/10 ${
+                  i === 0 ? "h-[440px] sm:h-[500px]" : "h-[380px] sm:h-[440px]"
+                }`}
               >
-                {/* Image */}
+                {/* Project Image */}
                 <Image
                   src={project.coverImage}
                   alt={project.title}
@@ -107,65 +98,39 @@ export default function FeaturedProjects() {
                   sizes={i === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
                 />
 
-                {/* Gradient overlay */}
-                <div
-                  className="absolute inset-0 transition-opacity duration-300"
-                  style={{
-                    background: "linear-gradient(180deg, transparent 20%, rgba(5,5,5,0.65) 55%, rgba(5,5,5,0.95) 100%)",
-                  }}
-                />
-
-                {/* Hover overlay */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "rgba(245,158,11,0.1)" }}
-                />
+                {/* Gradient overlay: ensures complete legibility of text */}
+                <div className="absolute inset-0 transition-opacity duration-300 bg-gradient-to-t from-black via-black/65 to-transparent" />
 
                 {/* Category badge */}
-                <div
-                  className="absolute top-5 left-5 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase"
-                  style={{
-                    background: "rgba(5,5,5,0.7)",
-                    backdropFilter: "blur(12px)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    color: "var(--accent)",
-                  }}
-                >
+                <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase bg-black/80 backdrop-blur-md border border-white/15 text-amber-400 z-10">
                   {project.category}
                 </div>
 
                 {/* Project info */}
-                <div className="absolute bottom-0 left-0 right-0 p-7 md:p-9">
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10 flex flex-col justify-end">
                   <h3
-                    className="font-extrabold mb-3 transition-transform duration-300 group-hover:-translate-y-1"
-                    style={{
-                      fontSize: i === 0 ? "clamp(1.5rem, 3vw, 2.25rem)" : "clamp(1.25rem, 2.5vw, 1.75rem)",
-                      color: "var(--text-primary)",
-                    }}
+                    className={`font-bold mb-3 text-white transition-colors duration-200 group-hover:text-amber-300 leading-snug ${
+                      i === 0 ? "text-2xl sm:text-3xl lg:text-4xl font-black" : "text-xl sm:text-2xl font-bold"
+                    }`}
                   >
                     {project.title}
                   </h3>
 
-                  <div
-                    className="flex items-center gap-5 text-base mb-4"
-                    style={{ color: "rgba(250,250,250,0.7)" }}
-                  >
+                  <div className="flex flex-wrap items-center gap-5 text-sm text-zinc-300 mb-4 font-medium">
                     <span className="flex items-center gap-2">
-                      <MapPin size={16} />
+                      <MapPin size={16} className="text-amber-400 shrink-0" />
                       {project.location}
                     </span>
                     <span className="flex items-center gap-2">
-                      <Calendar size={16} />
+                      <Calendar size={16} className="text-amber-400 shrink-0" />
                       {project.year}
                     </span>
                   </div>
 
-                  {/* CTA - visible on hover */}
-                  <div
-                    className="flex items-center gap-2.5 text-base font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    View Project <ExternalLink size={18} />
+                  {/* CTA link */}
+                  <div className="inline-flex items-center gap-2 text-sm font-bold text-amber-400 transition-all duration-200 group-hover:gap-3 group-hover:text-amber-300">
+                    <span>View Project Details</span>
+                    <ExternalLink size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
                   </div>
                 </div>
               </Link>

@@ -6,14 +6,14 @@ import {
 } from "lucide-react";
 
 const reasons = [
-  { icon: Award, title: "Professional Design", desc: "Every project starts with a professionally engineered 2D plan — not guesswork." },
-  { icon: Users, title: "Experienced Team", desc: "15+ years, 250+ projects. Our team has seen and solved it all." },
-  { icon: Zap, title: "Design + Execution", desc: "One team handles design and installation. No miscommunication, no finger-pointing." },
-  { icon: CheckCircle, title: "Quality Materials", desc: "We only use certified, tested fixtures and cables from reputable suppliers." },
-  { icon: Eye, title: "On-Site Supervision", desc: "Our engineers are on-site through every critical phase of installation." },
-  { icon: Sparkles, title: "Transparent Process", desc: "Detailed quotes, clear timelines, no hidden costs. You always know what's happening." },
-  { icon: Clock, title: "Timely Execution", desc: "We respect your schedule. Projects are planned and executed on agreed timelines." },
-  { icon: HeartHandshake, title: "Post-Project Support", desc: "We don't disappear after handover. Maintenance, tweaks and support — we're here." },
+  { icon: Award, title: "Photometric Design", desc: "Every project starts with an engineered 2D layout and Dialux calculations — zero guesswork." },
+  { icon: Users, title: "15+ Years Experience", desc: "Over 250+ delivered projects across North India. Our engineers have mastered every architectural nuance." },
+  { icon: Zap, title: "Design + Execution", desc: "Single-source accountability. We bridge the gap between design studio and electrical execution." },
+  { icon: CheckCircle, title: "Premium Material Spec", desc: "We exclusively specify high-CRI (95+), IP-rated fixtures and tested cabling from top global manufacturers." },
+  { icon: Eye, title: "Supervised Contracting", desc: "Our licensed senior electrical engineers supervise every conduit, fixture angle, and load balance on-site." },
+  { icon: Sparkles, title: "Transparent Engineering", desc: "Detailed BOQs, clear lux targets, and scheduled milestones. No surprises, no hidden overheads." },
+  { icon: Clock, title: "Turnkey Timelines", desc: "We align with interior designers and civil contractors to execute strictly within agreed handover dates." },
+  { icon: HeartHandshake, title: "Post-Handover Care", desc: "Complete warranty documentation, photometric sign-offs, and ongoing support long after lights turn on." },
 ];
 
 const containerVariants = {
@@ -42,88 +42,56 @@ export default function WhyUs() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
-      style={{ background: "var(--surface-0)" }}
+      className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-zinc-950"
       id="why-us"
       aria-labelledby="why-us-heading"
     >
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+      {/* Background ambient lighting */}
+      <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full">
         {/* Header */}
         <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 24 }}
+          className="text-center max-w-3xl mx-auto mb-14 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center justify-center mb-5">
-            <div className="section-eyebrow">
-              <span className="section-eyebrow-line" />
-              <span className="section-eyebrow-text">Why Choose Us</span>
-            </div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">
+            <Sparkles size={15} />
+            <span>Why Choose Viswajit</span>
           </div>
           <h2
             id="why-us-heading"
-            className="font-extrabold tracking-tight"
-            style={{
-              fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-              color: "var(--text-primary)",
-              lineHeight: 1.08,
-            }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4 leading-tight"
           >
-            Why Clients <span className="text-gradient">Choose Us</span>
+            Why Leading Architects &amp; Owners <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Trust Our Studio
+            </span>
           </h2>
+          <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto">
+            Combining design studio sensitivity with rigorous on-ground electrical contracting.
+          </p>
         </motion.div>
 
         {/* Reasons grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
           {reasons.map((reason) => (
-            <motion.div key={reason.title} variants={itemVariants}>
-              <div
-                className="rounded-2xl p-8 md:p-10 h-full transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
-                style={{
-                  background: "var(--surface-1)",
-                  border: "1px solid var(--border-default)",
-                }}
-              >
-                {/* Hover border glow */}
-                <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ border: "1px solid var(--border-accent)" }}
-                />
-
-                {/* Hover gradient */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ background: "linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 60%)" }}
-                />
-
-                <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-                  style={{
-                    background: "var(--accent-subtle)",
-                    color: "var(--accent)",
-                  }}
-                >
-                  <reason.icon size={28} />
+            <motion.div key={reason.title} variants={itemVariants} className="flex">
+              <div className="rounded-3xl p-7 sm:p-8 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-start group">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
+                  <reason.icon size={26} />
                 </div>
-                <h3
-                  className="font-bold text-xl mb-4"
-                  style={{ color: "var(--text-primary)" }}
-                >
+                <h3 className="font-bold text-xl mb-3 text-white group-hover:text-amber-300 transition-colors duration-200 leading-snug">
                   {reason.title}
                 </h3>
-                <p
-                  className="text-base leading-relaxed"
-                  style={{ color: "var(--text-muted)" }}
-                >
+                <p className="text-sm text-zinc-300 leading-relaxed">
                   {reason.desc}
                 </p>
               </div>

@@ -9,8 +9,7 @@ export default function ExperienceTimeline() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
-      style={{ background: "var(--surface-0)" }}
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-zinc-950"
       id="timeline"
       aria-labelledby="timeline-heading"
     >
@@ -18,31 +17,26 @@ export default function ExperienceTimeline() {
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)",
           filter: "blur(70px)",
         }}
       />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          className="mb-14 md:mb-18"
-          initial={{ opacity: 0, y: 24 }}
+          className="mb-10 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="section-eyebrow mb-5">
-            <span className="section-eyebrow-line" />
-            <span className="section-eyebrow-text">Our Journey</span>
+          <div className="inline-flex items-center gap-2 mb-2">
+            <span className="w-8 h-px bg-amber-400" />
+            <span className="text-xs sm:text-sm font-bold tracking-widest uppercase text-amber-400">Our Journey</span>
           </div>
           <h2
             id="timeline-heading"
-            className="font-extrabold tracking-tight"
-            style={{
-              fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-              color: "var(--text-primary)",
-              lineHeight: 1.08,
-            }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white"
           >
             15 Years of <span className="text-gradient">Excellence</span>
           </h2>
@@ -52,53 +46,39 @@ export default function ExperienceTimeline() {
         <div className="relative">
           {/* Vertical line */}
           <motion.div
-            className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px"
-            style={{
-              background: "linear-gradient(180deg, var(--accent) 0%, transparent 100%)",
-              transformOrigin: "top",
-            }}
+            className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500 to-transparent"
+            style={{ transformOrigin: "top" }}
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1.2, delay: 0.3 }}
           />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10">
             {timeline.map((event, i) => (
               <motion.div
                 key={event.year}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className={`relative flex items-start gap-8 md:gap-0 ${
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
+                className={`relative flex items-start gap-6 md:gap-0 ${
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Content */}
                 <div
-                  className={`flex-1 pl-14 md:pl-0 ${
-                    i % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"
+                  className={`flex-1 pl-12 md:pl-0 ${
+                    i % 2 === 0 ? "md:pr-14 md:text-right" : "md:pl-14"
                   }`}
                 >
-                  <div
-                    className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest mb-4"
-                    style={{
-                      background: "var(--accent-subtle)",
-                      border: "1px solid var(--border-accent)",
-                      color: "var(--accent)",
-                    }}
-                  >
+                  <div className="inline-block px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wider mb-2.5 bg-amber-500/10 border border-amber-500/30 text-amber-400">
                     {event.year}
                   </div>
-                  <h3
-                    className="font-bold text-xl mb-3"
-                    style={{ color: "var(--text-primary)" }}
-                  >
+                  <h3 className="font-bold text-lg sm:text-xl mb-2 text-white">
                     {event.title}
                   </h3>
                   <p
-                    className="text-base leading-relaxed max-w-xs"
+                    className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-md"
                     style={{
-                      color: "var(--text-muted)",
                       marginLeft: i % 2 !== 0 ? 0 : "auto",
                     }}
                   >
@@ -108,21 +88,9 @@ export default function ExperienceTimeline() {
 
                 {/* Center dot */}
                 <div className="absolute left-5 md:left-1/2 top-2 -translate-x-1/2 flex items-center justify-center">
-                  <div
-                    className="w-4 h-4 rounded-full border-2"
-                    style={{
-                      background: "var(--bg-primary)",
-                      borderColor: "var(--accent)",
-                    }}
-                  />
+                  <div className="w-3.5 h-3.5 rounded-full border-2 bg-black border-amber-400" />
                   {i === timeline.length - 1 && (
-                    <div
-                      className="absolute w-6 h-6 rounded-full animate-pulse-glow"
-                      style={{
-                        background: "var(--accent-glow)",
-                        border: "1px solid var(--accent)",
-                      }}
-                    />
+                    <div className="absolute w-5 h-5 rounded-full bg-amber-400/20 border border-amber-400 animate-ping" />
                   )}
                 </div>
 

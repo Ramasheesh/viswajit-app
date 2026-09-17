@@ -4,29 +4,17 @@ import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 export default function MobileStickyBar() {
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden backdrop-blur-xl bg-zinc-950/90 border-t border-zinc-800 p-2.5 shadow-2xl"
       role="navigation"
       aria-label="Quick contact"
-      style={{
-        background: "rgba(10,10,10,0.9)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        borderTop: "1px solid var(--border-subtle)",
-        padding: "0.625rem 1rem",
-      }}
     >
       <div className="flex items-center gap-2">
         <a
           href="tel:+919876543210"
           id="sticky-call-btn"
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold text-sm"
-          style={{
-            background: "var(--surface-1)",
-            border: "1px solid var(--border-default)",
-            color: "var(--text-primary)",
-          }}
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-zinc-900 border border-zinc-700 text-white hover:bg-zinc-800 transition-colors"
         >
-          <Phone size={15} />
+          <Phone size={16} className="text-amber-400" />
           Call
         </a>
         <a
@@ -34,18 +22,17 @@ export default function MobileStickyBar() {
           id="sticky-whatsapp-btn"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold text-sm"
-          style={{ background: "#25D366", color: "#fff" }}
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors shadow-sm"
         >
-          <MessageCircle size={15} />
+          <MessageCircle size={16} />
           WhatsApp
         </a>
         <Link
           href="/submit-project"
           id="sticky-project-btn"
-          className="flex-1 btn btn-primary flex items-center justify-center gap-2 py-2.5 text-sm"
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-amber-500 text-black hover:bg-amber-400 transition-colors shadow-md shadow-amber-500/20"
         >
-          <ArrowRight size={15} />
+          <ArrowRight size={16} />
           Project
         </Link>
       </div>

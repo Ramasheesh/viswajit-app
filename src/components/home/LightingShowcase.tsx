@@ -47,7 +47,7 @@ export default function LightingShowcase() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-zinc-950"
       id="lighting-showcase"
       aria-labelledby="showcase-heading"
     >
@@ -56,67 +56,53 @@ export default function LightingShowcase() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, var(--accent-subtle) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse at center, rgba(245,158,11,0.08) 0%, transparent 60%)",
         }}
       />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 24 }}
+          className="text-center mb-10 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center justify-center mb-5">
-            <div className="section-eyebrow">
-              <span className="section-eyebrow-line" />
-              <span className="section-eyebrow-text">Our Workflow</span>
+          <div className="flex items-center justify-center mb-3">
+            <div className="inline-flex items-center gap-2">
+              <span className="w-8 h-px bg-amber-400" />
+              <span className="text-xs sm:text-sm font-bold tracking-widest uppercase text-amber-400">Our Workflow</span>
             </div>
           </div>
           <h2
             id="showcase-heading"
-            className="font-extrabold tracking-tight mb-6"
-            style={{
-              fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-              color: "var(--text-primary)",
-              lineHeight: 1.08,
-            }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3"
           >
             Design &rarr; Visualize &rarr; <span className="text-gradient">Execute</span>
           </h2>
-          <p
-            className="text-xl max-w-2xl mx-auto"
-            style={{ color: "var(--text-muted)" }}
-          >
+          <p className="text-base sm:text-lg text-zinc-300 max-w-xl mx-auto">
             We don&apos;t just install lights. We design, visualize and execute complete lighting systems.
           </p>
         </motion.div>
 
         {/* Tab switcher */}
         <motion.div
-          className="flex justify-center mb-14"
+          className="flex justify-center mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div
-            className="flex p-2 gap-1.5 rounded-2xl"
-            style={{
-              background: "var(--surface-1)",
-              border: "1px solid var(--border-default)",
-            }}
-          >
+          <div className="flex p-1.5 gap-1 rounded-2xl bg-zinc-900 border border-zinc-800">
             {stages.map((stage) => (
               <button
                 key={stage.id}
                 id={`showcase-tab-${stage.id}`}
                 onClick={() => setActive(stage.id)}
-                className="px-7 py-3.5 rounded-xl text-sm font-bold tracking-widest transition-all duration-200"
-                style={{
-                  background: active === stage.id ? "var(--accent)" : "transparent",
-                  color: active === stage.id ? "var(--bg-primary)" : "var(--text-muted)",
-                }}
+                className={`px-5 py-2.5 sm:px-7 sm:py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wider transition-all duration-200 ${
+                  active === stage.id
+                    ? "bg-amber-500 text-black shadow-md shadow-amber-500/20"
+                    : "text-zinc-400 hover:text-white"
+                }`}
               >
                 {stage.label}
               </button>
@@ -125,15 +111,15 @@ export default function LightingShowcase() {
         </motion.div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-zinc-800 shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -141,7 +127,7 @@ export default function LightingShowcase() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 0.35 }}
                 >
                   <Image
                     src={current.image}
@@ -153,7 +139,7 @@ export default function LightingShowcase() {
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: "linear-gradient(180deg, transparent 50%, rgba(5,5,5,0.5) 100%)",
+                      background: "linear-gradient(180deg, transparent 50%, rgba(5,5,5,0.6) 100%)",
                     }}
                   />
                 </motion.div>
@@ -161,9 +147,9 @@ export default function LightingShowcase() {
 
               {/* Stage tag */}
               <div
-                className="absolute top-5 left-5 px-4 py-2 rounded-full text-sm font-bold tracking-widest"
+                className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider"
                 style={{
-                  background: "rgba(5,5,5,0.7)",
+                  background: "rgba(5,5,5,0.8)",
                   backdropFilter: "blur(12px)",
                   border: `1px solid ${current.color}`,
                   color: current.color,
@@ -174,9 +160,9 @@ export default function LightingShowcase() {
             </div>
 
             {/* Step indicators */}
-            <div className="flex justify-center gap-6 mt-7">
+            <div className="flex justify-center gap-5 mt-6">
               {stages.map((stage, i) => (
-                <div key={stage.id} className="flex items-center gap-6">
+                <div key={stage.id} className="flex items-center gap-5">
                   <button
                     onClick={() => setActive(stage.id)}
                     className="flex items-center gap-2.5 group"
@@ -185,21 +171,20 @@ export default function LightingShowcase() {
                     <div
                       className="w-3 h-3 rounded-full transition-all duration-200"
                       style={{
-                        background: active === stage.id ? "var(--accent)" : "var(--border-default)",
-                        transform: active === stage.id ? "scale(1.5)" : "scale(1)",
+                        background: active === stage.id ? "var(--accent)" : "rgba(255,255,255,0.2)",
+                        transform: active === stage.id ? "scale(1.4)" : "scale(1)",
                       }}
                     />
                     <span
-                      className="text-sm font-medium transition-colors duration-200"
-                      style={{
-                        color: active === stage.id ? "var(--accent)" : "var(--text-muted)",
-                      }}
+                      className={`text-xs sm:text-sm font-semibold transition-colors duration-200 ${
+                        active === stage.id ? "text-amber-400" : "text-zinc-500"
+                      }`}
                     >
                       {stage.label}
                     </span>
                   </button>
                   {i < stages.length - 1 && (
-                    <div className="w-10 h-px" style={{ background: "var(--border-default)" }} />
+                    <div className="w-8 h-px bg-zinc-800" />
                   )}
                 </div>
               ))}
@@ -210,68 +195,57 @@ export default function LightingShowcase() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.35 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
               >
                 <div
-                  className="text-sm font-bold tracking-[0.15em] mb-5 uppercase"
+                  className="text-xs sm:text-sm font-bold tracking-widest mb-2 uppercase"
                   style={{ color: current.color }}
                 >
                   STAGE — {current.label}
                 </div>
-                <h3
-                  className="font-extrabold mb-7"
-                  style={{
-                    fontSize: "clamp(2rem, 5vw, 3rem)",
-                    color: "var(--text-primary)",
-                    lineHeight: 1.1,
-                  }}
-                >
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
                   {current.title}
                 </h3>
-                <p
-                  className="text-xl leading-relaxed"
-                  style={{ color: "var(--text-secondary)" }}
-                >
+                <p className="text-base sm:text-lg text-zinc-300 leading-relaxed mb-6">
                   {current.description}
                 </p>
               </motion.div>
             </AnimatePresence>
 
             {/* Step list */}
-            <div className="mt-10 space-y-4">
+            <div className="space-y-3">
               {stages.map((stage, i) => (
                 <button
                   key={stage.id}
                   onClick={() => setActive(stage.id)}
-                  className="w-full flex items-center gap-5 p-5 rounded-xl text-left transition-all duration-200"
-                  style={{
-                    background: active === stage.id ? "var(--surface-1)" : "transparent",
-                    border: `1px solid ${active === stage.id ? stage.color : "var(--border-default)"}`,
-                    opacity: active === stage.id ? 1 : 0.6,
-                  }}
+                  className={`w-full flex items-center gap-4 p-4 rounded-2xl text-left transition-all duration-200 border ${
+                    active === stage.id
+                      ? "bg-zinc-900 border-amber-500/50 shadow-lg shadow-amber-500/5"
+                      : "bg-zinc-900/40 border-zinc-800/80 hover:border-zinc-700 opacity-80"
+                  }`}
                 >
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black shrink-0"
-                    style={{
-                      background: active === stage.id ? stage.color : "var(--surface-2)",
-                      color: active === stage.id ? "var(--bg-primary)" : "var(--text-muted)",
-                    }}
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs sm:text-sm font-black shrink-0 ${
+                      active === stage.id
+                        ? "bg-amber-500 text-black"
+                        : "bg-zinc-800 text-zinc-400"
+                    }`}
                   >
                     {i + 1}
                   </div>
                   <div>
-                    <div className="font-bold text-lg" style={{ color: "var(--text-primary)" }}>
+                    <div className="font-bold text-sm sm:text-base text-white">
                       {stage.label}
                     </div>
-                    <div className="text-base" style={{ color: "var(--text-muted)" }}>
+                    <div className="text-xs sm:text-sm text-zinc-400">
                       {stage.title}
                     </div>
                   </div>
@@ -279,15 +253,14 @@ export default function LightingShowcase() {
               ))}
             </div>
 
-            <div className="mt-10">
+            <div className="mt-8">
               <Link
                 href="/lighting"
                 id="showcase-view-more"
-                className="inline-flex items-center gap-2.5 font-bold text-lg transition-all duration-200 hover:gap-4"
-                style={{ color: "var(--accent)" }}
+                className="inline-flex items-center gap-2 font-semibold text-base text-amber-400 transition-all duration-200 hover:gap-3"
               >
                 View 2D &amp; 3D gallery
-                <ArrowRight size={20} />
+                <ArrowRight size={18} />
               </Link>
             </div>
           </motion.div>

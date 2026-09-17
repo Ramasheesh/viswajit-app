@@ -54,7 +54,7 @@ export default function Navbar() {
         }}
       >
         <div
-          className="section-container-wide h-full flex items-center justify-between"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between"
         >
           {/* Logo */}
           <Link

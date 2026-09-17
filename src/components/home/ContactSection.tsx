@@ -2,164 +2,172 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { ArrowRight, Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle, Mail, MapPin, Clock, Sparkles } from "lucide-react";
 import { company } from "@/lib/data/company";
 
 export default function ContactSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  const contactCards = [
+    {
+      icon: Phone,
+      label: "Direct Consultation",
+      value: company.phone,
+      sub: "Available Mon – Sat, 9am – 8pm",
+      action: "Call directly",
+      href: `tel:${company.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: MessageCircle,
+      label: "Instant WhatsApp",
+      value: company.whatsapp,
+      sub: "Fast response for design inquiries",
+      action: "Chat on WhatsApp",
+      href: `https://wa.me/${company.whatsapp}`,
+    },
+    {
+      icon: Mail,
+      label: "Email Desk",
+      value: company.email,
+      sub: "Send drawings & project RFPs",
+      action: "Send an email",
+      href: `mailto:${company.email}`,
+    },
+    {
+      icon: MapPin,
+      label: "Design Studio",
+      value: "Civil Lines, Lucknow",
+      sub: "Uttar Pradesh – 226001 (By Appointment)",
+      action: "Visit studio",
+      href: "/contact#map",
+    },
+  ];
+
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
+      className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-zinc-950"
       id="contact"
       aria-labelledby="contact-heading"
     >
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+      {/* Ambient background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
       <div
-        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] pointer-events-none"
         style={{
-          background: "radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(245,158,11,0.1) 0%, transparent 70%)",
           filter: "blur(90px)",
         }}
       />
 
-      <div className="section-container relative z-10">
-        {/* CTA Header */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full">
+        {/* Centered CTA Header */}
         <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 24 }}
+          className="text-center max-w-3xl mx-auto mb-14 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center justify-center mb-5">
-            <div className="section-eyebrow">
-              <span className="section-eyebrow-line" />
-              <span className="section-eyebrow-text">Get In Touch</span>
-            </div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">
+            <Sparkles size={15} />
+            <span>Start Your Lighting Journey</span>
           </div>
+
           <h2
             id="contact-heading"
-            className="font-extrabold tracking-tight mb-6"
-            style={{
-              fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-              color: "var(--text-primary)",
-              lineHeight: 1.08,
-            }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-5 leading-tight"
           >
-            Let&apos;s Light Your
-            <br />
-            <span className="text-gradient">Next Project.</span>
+            Let&apos;s Illuminate Your <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Next Masterpiece.
+            </span>
           </h2>
-          <p
-            className="text-xl max-w-2xl mx-auto mb-12"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Ready to transform your space? Start with a consultation. Our team will guide you from concept to completion.
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed mb-8 max-w-xl mx-auto">
+            Consult directly with our certified lighting designers and electrical engineers for luxury residences, commercial spaces, and façade projects.
           </p>
 
-          {/* CTA buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* Action CTAs */}
+          <div className="flex flex-wrap justify-center items-center gap-4">
             <a
               href={`tel:${company.phone.replace(/\s/g, "")}`}
               id="contact-call-btn"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-0.5"
-              style={{
-                background: "var(--accent)",
-                color: "var(--bg-primary)",
-                boxShadow: "0 4px 24px rgba(245,158,11,0.35)",
-              }}
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/25 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
             >
-              <Phone size={22} />
-              Call Now
+              <Phone size={18} />
+              <span>Call Consultation Line</span>
             </a>
             <a
               href={`https://wa.me/${company.whatsapp}`}
               id="contact-whatsapp-btn"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-0.5"
-              style={{ background: "#25D366", color: "#fff" }}
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-[#25D366] text-white hover:bg-[#20ba59] shadow-lg shadow-[#25D366]/20 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
             >
-              <MessageCircle size={22} />
-              WhatsApp
+              <MessageCircle size={18} />
+              <span>Chat on WhatsApp</span>
             </a>
             <Link
               href="/submit-project"
               id="contact-submit-project"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-300 hover:-translate-y-0.5"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                color: "var(--text-primary)",
-                border: "1px solid rgba(255,255,255,0.2)",
-              }}
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-zinc-900 text-white border border-zinc-700 hover:bg-zinc-800 transition-all duration-200 hover:-translate-y-0.5 shadow-md active:scale-95"
             >
-              Submit Project
-              <ArrowRight size={22} />
+              <span>Submit Project RFP</span>
+              <ArrowRight size={18} />
             </Link>
           </div>
         </motion.div>
 
-        {/* Contact info cards */}
+        {/* 4 Professional Contact Cards */}
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {[
-            { icon: Phone, label: "Phone", value: company.phone, href: `tel:${company.phone.replace(/\s/g, "")}` },
-            { icon: MessageCircle, label: "WhatsApp", value: company.phone, href: `https://wa.me/${company.whatsapp}` },
-            { icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}` },
-            { icon: MapPin, label: "Office", value: company.address, href: "#" },
-          ].map((item) => (
+          {contactCards.map((item) => (
             <a
               key={item.label}
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 group"
-              style={{
-                background: "var(--surface-1)",
-                border: "1px solid var(--border-default)",
-              }}
+              className="group flex flex-col justify-between p-7 rounded-3xl bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl"
             >
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
-                style={{
-                  background: "var(--accent-subtle)",
-                  color: "var(--accent)",
-                }}
-              >
-                <item.icon size={24} />
+              <div>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
+                  <item.icon size={24} />
+                </div>
+                
+                <div className="text-xs font-bold tracking-widest uppercase text-amber-400 mb-2">
+                  {item.label}
+                </div>
+
+                <div className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-300 transition-colors mb-2 break-words leading-snug">
+                  {item.value}
+                </div>
+
+                <div className="text-xs text-zinc-400 leading-relaxed">
+                  {item.sub}
+                </div>
               </div>
-              <div
-                className="text-xs font-bold tracking-[0.12em] uppercase mb-3"
-                style={{ color: "var(--text-muted)" }}
-              >
-                {item.label}
-              </div>
-              <div
-                className="text-base md:text-lg font-medium transition-colors duration-200 line-clamp-2"
-                style={{ color: "var(--text-primary)" }}
-              >
-                {item.value}
+
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-amber-400 group-hover:text-amber-300">
+                <span>{item.action}</span>
+                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
               </div>
             </a>
           ))}
         </motion.div>
 
-        {/* Working hours */}
+        {/* Operating hours footer */}
         <motion.div
-          className="mt-10 flex items-center justify-center gap-3 text-lg"
-          style={{ color: "var(--text-muted)" }}
+          className="mt-12 flex items-center justify-center gap-2.5 text-sm text-zinc-400"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <Clock size={22} style={{ color: "var(--accent)" }} />
-          {company.workingHours}
+          <Clock size={18} className="text-amber-400" />
+          <span>Operating Hours: {company.workingHours} · Site Visits Across North India</span>
         </motion.div>
       </div>
     </section>

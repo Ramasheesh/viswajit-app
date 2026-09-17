@@ -39,8 +39,7 @@ export default function SiteVisitCTA() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden section-padding"
-      style={{ background: "var(--surface-0)" }}
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-zinc-950"
       id="site-visit"
       aria-labelledby="site-visit-heading"
     >
@@ -48,43 +47,33 @@ export default function SiteVisitCTA() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at 30% 50%, var(--accent-subtle) 0%, transparent 55%)",
+          background: "radial-gradient(ellipse at 30% 50%, rgba(245,158,11,0.08) 0%, transparent 55%)",
         }}
       />
 
-      <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="section-eyebrow">
-              <span className="section-eyebrow-line" />
-              <span className="section-eyebrow-text">Book a Visit</span>
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-8 h-px bg-amber-400" />
+              <span className="text-xs sm:text-sm font-bold tracking-widest uppercase text-amber-400">Book a Visit</span>
             </div>
 
             <h2
               id="site-visit-heading"
-              className="font-extrabold tracking-tight mb-7"
-              style={{
-                fontSize: "clamp(2.25rem, 5.5vw, 3.5rem)",
-                color: "var(--text-primary)",
-                lineHeight: 1.08,
-              }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight"
             >
-              Book a Free
-              <br />
-              <span className="text-gradient">Site Visit</span>
+              Book a Free <span className="text-gradient">Site Visit</span>
             </h2>
-            <p
-              className="text-xl leading-relaxed mb-10"
-              style={{ color: "var(--text-muted)" }}
-            >
+            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed mb-8">
               On-site assessment for lighting and electrical requirements. Our team visits your space, understands your vision, and prepares a detailed proposal — at no charge.
             </p>
-            <div className="space-y-5">
+            <div className="space-y-4">
               {[
                 { icon: Calendar, text: "Available Monday – Saturday" },
                 { icon: MapPin, text: "Across 50+ locations in North India" },
@@ -92,14 +81,10 @@ export default function SiteVisitCTA() {
               ].map((item) => (
                 <div
                   key={item.text}
-                  className="flex items-center gap-5 text-lg"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="flex items-center gap-3.5 text-base text-zinc-200"
                 >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: "var(--accent-subtle)", color: "var(--accent)" }}
-                  >
-                    <item.icon size={20} />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-amber-500/10 text-amber-400">
+                    <item.icon size={18} />
                   </div>
                   {item.text}
                 </div>
@@ -111,36 +96,23 @@ export default function SiteVisitCTA() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <div
-              className="rounded-2xl p-10 md:p-12 relative overflow-hidden"
-              style={{
-                background: "var(--surface-1)",
-                border: "1px solid var(--border-default)",
-              }}
-            >
+            <div className="rounded-3xl p-7 sm:p-10 relative overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
               {/* Top accent */}
               <div
-                className="absolute top-0 left-0 right-0 h-1"
-                style={{ background: "linear-gradient(90deg, var(--accent), transparent)" }}
+                className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-transparent"
               />
 
               {submitted ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center gap-6">
-                  <div
-                    className="w-24 h-24 rounded-full flex items-center justify-center"
-                    style={{ background: "var(--accent-subtle)" }}
-                  >
-                    <CheckCircle size={48} style={{ color: "var(--accent)" }} />
+                <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center bg-amber-500/10 text-amber-400">
+                    <CheckCircle size={36} />
                   </div>
-                  <h3
-                    className="font-bold text-2xl"
-                    style={{ color: "var(--text-primary)" }}
-                  >
+                  <h3 className="font-bold text-xl sm:text-2xl text-white">
                     Request Received!
                   </h3>
-                  <p className="text-lg" style={{ color: "var(--text-muted)" }}>
+                  <p className="text-sm sm:text-base text-zinc-400 max-w-xs">
                     Our team will contact you within 2 hours to confirm your site visit.
                   </p>
                 </div>
@@ -148,13 +120,10 @@ export default function SiteVisitCTA() {
                 <form
                   onSubmit={handleSubmit}
                   noValidate
-                  className="space-y-6"
+                  className="space-y-4"
                   id="site-visit-form"
                 >
-                  <h3
-                    className="font-bold text-2xl mb-8"
-                    style={{ color: "var(--text-primary)" }}
-                  >
+                  <h3 className="font-bold text-xl sm:text-2xl text-white mb-5">
                     Request Site Visit
                   </h3>
 
@@ -184,8 +153,7 @@ export default function SiteVisitCTA() {
                     <div key={f.field}>
                       <label
                         htmlFor={f.id}
-                        className="block text-base font-semibold mb-2.5"
-                        style={{ color: "var(--text-secondary)" }}
+                        className="block text-sm font-semibold text-zinc-300 mb-1.5"
                       >
                         {f.label}
                       </label>
@@ -197,16 +165,13 @@ export default function SiteVisitCTA() {
                         onChange={(e) =>
                           setForm({ ...form, [f.field]: e.target.value })
                         }
-                        className="w-full px-5 py-4 rounded-xl text-base outline-none transition-all duration-200"
+                        className="w-full px-4 py-3 rounded-xl text-base outline-none transition-all duration-200 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400"
                         style={{
-                          background: "var(--surface-0)",
-                          border: `1px solid ${errors[f.field] ? "#ef4444" : "var(--border-default)"}`,
-                          color: "var(--text-primary)",
-                          fontSize: "1rem",
+                          borderColor: errors[f.field] ? "#ef4444" : undefined,
                         }}
                       />
                       {errors[f.field] && (
-                        <p className="text-sm mt-2 text-red-400">
+                        <p className="text-xs mt-1 text-red-400">
                           {errors[f.field]}
                         </p>
                       )}
@@ -216,8 +181,7 @@ export default function SiteVisitCTA() {
                   <div>
                     <label
                       htmlFor="sv-date"
-                      className="block text-base font-semibold mb-2.5"
-                      style={{ color: "var(--text-secondary)" }}
+                      className="block text-sm font-semibold text-zinc-300 mb-1.5"
                     >
                       Preferred Date
                     </label>
@@ -228,39 +192,24 @@ export default function SiteVisitCTA() {
                       onChange={(e) =>
                         setForm({ ...form, date: e.target.value })
                       }
-                      className="w-full px-5 py-4 rounded-xl text-base outline-none transition-all duration-200"
-                      style={{
-                        background: "var(--surface-0)",
-                        border: "1px solid var(--border-default)",
-                        color: "var(--text-primary)",
-                        fontSize: "1rem",
-                      }}
+                      className="w-full px-4 py-3 rounded-xl text-base outline-none transition-all duration-200 bg-zinc-950 border border-zinc-800 text-white focus:border-amber-400"
                     />
                   </div>
 
                   <button
                     type="submit"
                     id="site-visit-submit"
-                    className="w-full flex items-center justify-center gap-3 py-5 rounded-xl font-bold text-lg transition-all duration-300 hover:-translate-y-0.5"
-                    style={{
-                      background: "var(--accent)",
-                      color: "var(--bg-primary)",
-                      boxShadow: "0 4px 24px rgba(245,158,11,0.35)",
-                    }}
+                    className="w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 rounded-xl font-bold text-base transition-all duration-200 hover:-translate-y-0.5 bg-amber-500 text-black hover:bg-amber-400 shadow-lg shadow-amber-500/25 mt-3"
                   >
                     Request Site Visit
-                    <ArrowRight size={22} />
+                    <ArrowRight size={18} />
                   </button>
 
-                  <p
-                    className="text-center text-base"
-                    style={{ color: "var(--text-muted)" }}
-                  >
+                  <p className="text-center text-sm text-zinc-400 pt-2">
                     Or{" "}
                     <Link
                       href="/submit-project"
-                      className="font-semibold transition-colors duration-200"
-                      style={{ color: "var(--accent)" }}
+                      className="font-semibold text-amber-400 hover:underline"
                     >
                       submit a full project inquiry
                     </Link>

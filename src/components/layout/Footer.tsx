@@ -15,26 +15,20 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden"
-      style={{
-        paddingTop: "clamp(3rem, 7vw, 5rem)",
-        paddingBottom: "1.75rem",
-        background: "var(--surface-0)",
-        borderTop: "1px solid var(--border-subtle)",
-      }}
+      className="relative overflow-hidden pt-12 sm:pt-16 pb-6 bg-zinc-950 border-t border-white/5 w-full"
     >
       {/* Background glow */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, var(--accent-subtle) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(245,158,11,0.06) 0%, transparent 70%)",
           filter: "blur(50px)",
         }}
       />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Top section — 4-column natural grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 xl:gap-10 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 xl:gap-10 mb-10">
 
           {/* Brand */}
           <div className="md:col-span-2 xl:col-span-1">

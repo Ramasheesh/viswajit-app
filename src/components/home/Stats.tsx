@@ -37,26 +37,14 @@ function AnimatedStat({ value, suffix, label, description }: StatProps) {
 
   return (
     <div ref={ref} className="text-center group">
-      <div
-        className="font-black mb-3 transition-transform duration-300 group-hover:scale-105"
-        style={{
-          fontSize: "clamp(3.25rem, 7vw, 5rem)",
-          color: "var(--text-primary)",
-        }}
-      >
+      <div className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 transition-transform duration-300 group-hover:scale-105 text-white">
         <span className="text-gradient">{count}</span>
-        <span style={{ color: "var(--accent)" }}>{suffix}</span>
+        <span className="text-amber-400">{suffix}</span>
       </div>
-      <div
-        className="font-bold text-lg md:text-xl mb-2"
-        style={{ color: "var(--text-primary)" }}
-      >
+      <div className="font-bold text-base sm:text-lg mb-1.5 text-white">
         {label}
       </div>
-      <div
-        className="text-base leading-relaxed max-w-[220px] mx-auto"
-        style={{ color: "var(--text-muted)" }}
-      >
+      <div className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-[240px] mx-auto">
         {description}
       </div>
     </div>
@@ -76,46 +64,34 @@ export default function Stats() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden"
-      style={{
-        paddingBlock: "clamp(4rem, 8vw, 6rem)",
-        background: "var(--surface-1)",
-        borderTop: "1px solid var(--border-subtle)",
-        borderBottom: "1px solid var(--border-subtle)",
-      }}
+      className="relative overflow-hidden py-12 sm:py-14 md:py-16 border-y border-zinc-800/80 bg-zinc-950"
       aria-label="Company statistics"
     >
       {/* Background decoration */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, var(--accent-subtle) 0%, transparent 70%)",
-          filter: "blur(90px)",
+          background: "radial-gradient(ellipse at center, rgba(245,158,11,0.08) 0%, transparent 70%)",
+          filter: "blur(80px)",
         }}
       />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-8"
-          initial={{ opacity: 0, y: 30 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           {stats.map((s, i) => (
             <div key={s.label} className="relative">
               {/* Divider - hidden on mobile and last item */}
               {i < stats.length - 1 && (
-                <div
-                  className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-24"
-                  style={{ background: "var(--border-default)" }}
-                />
+                <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-16 bg-zinc-800" />
               )}
               {/* Mobile divider */}
               {i % 2 === 0 && (
-                <div
-                  className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 w-px h-16"
-                  style={{ background: "var(--border-subtle)" }}
-                />
+                <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-zinc-800/60" />
               )}
               <AnimatedStat {...s} />
             </div>
