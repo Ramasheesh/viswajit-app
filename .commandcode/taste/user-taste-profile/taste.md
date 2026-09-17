@@ -1,0 +1,11 @@
+# User Taste Profile
+- Prefers modern UI design with animations. Confidence: 0.8
+- Wants 2D and 3D visual effects in UI. Confidence: 0.8
+- Values high-quality, polished UI/UX. Confidence: 0.9
+- Prefers prominent, readable text sizes — dislikes text that is too small; favors fluid `clamp()` scaling for headings and body text. Confidence: 0.85
+- Wants generous, consistent padding across sections and cards — dislikes cramped layouts with missing spacing. Confidence: 0.85
+- Prefers thoroughly inspecting and auditing an existing project's stack, architecture, routes, styling, assets, responsiveness, motion, typography, and colors before changing the UI. Confidence: 0.98
+- Prefers major redesigns to proceed in explicit, incremental phases rather than generating the entire application in one pass. Confidence: 0.98
+- Expects each implementation phase to be run and visually inspected, with errors fixed and mobile behavior, accessibility, and performance verified. Confidence: 0.98
+- Prefers decisive, professional implementation choices without requests to approve obvious decisions. Confidence: 0.97
+- Favors premium, architectural, cinematic, modern, minimal visual design with subtle, performant motion; dislikes generic SaaS/template aesthetics, excessive rounded cards, glassmorphism, gradients, oversized text, cheap icons, and gratuitous animation. Confidence: 0.98
