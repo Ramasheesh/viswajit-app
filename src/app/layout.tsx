@@ -87,7 +87,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-zinc-950 text-zinc-100 selection:bg-amber-500 selection:text-black min-h-screen w-full overflow-x-hidden">
+      <body className="font-sans antialiased bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-amber-500 selection:text-black min-h-screen w-full overflow-x-hidden transition-colors duration-200">
         <ThemeProvider>
           <ScrollProgress />
           <CursorSpotlight />

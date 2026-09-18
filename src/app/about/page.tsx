@@ -56,7 +56,7 @@ export default function AboutPage() {
             </p>
 
             {/* Quick Stats Grid */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 p-6 sm:p-7 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl mb-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 p-6 sm:p-7 rounded-sm bg-zinc-900 border border-zinc-800 shadow-xl mb-8">
               {[
                 { value: `${company.experience}+`, label: "Years Experience" },
                 { value: `${company.projectsCompleted}+`, label: "Projects Done" },
@@ -75,7 +75,7 @@ export default function AboutPage() {
 
             <Link
               href="/submit-project"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base sm:text-lg bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-sm font-bold text-base sm:text-lg bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 hover:-translate-y-0.5"
             >
               Start a Project
               <ArrowRight size={20} />
@@ -84,7 +84,7 @@ export default function AboutPage() {
 
           {/* Right Image Display */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[1/1] border border-zinc-800 shadow-2xl">
+            <div className="relative rounded-sm overflow-hidden aspect-[4/3] sm:aspect-[1/1] border border-zinc-800 shadow-2xl">
               <Image
                 src="/images/hero_bg.jpg"
                 alt="Our team at work — architectural lighting installation"
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
               
               {/* Overlay pill */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-zinc-800 text-white flex items-center justify-between">
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-sm bg-zinc-950/90 backdrop-blur-md border border-zinc-800 text-white flex items-center justify-between">
                 <div>
                   <div className="text-sm font-bold text-white">Certified Master Electricians</div>
                   <div className="text-xs text-zinc-400">Govt. Licensed &amp; Supervised On-Site</div>
@@ -137,10 +137,10 @@ export default function AboutPage() {
             ].map((v) => (
               <div
                 key={v.title}
-                className="group p-8 rounded-3xl bg-zinc-900 border border-zinc-800 hover:border-amber-500/40 hover:bg-zinc-850 transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between"
+                className="group p-8 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-amber-500/40 hover:bg-zinc-850 transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-amber-500/10 text-amber-400 mb-6 group-hover:scale-105 transition-transform">
+                  <div className="w-14 h-14 rounded-sm flex items-center justify-center bg-amber-500/10 text-amber-400 mb-6 group-hover:scale-105 transition-transform">
                     <v.icon size={26} />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-300 transition-colors">
@@ -170,7 +170,7 @@ export default function AboutPage() {
             {timeline.map((event) => (
               <div
                 key={event.year}
-                className="flex items-start gap-6 p-6 sm:p-7 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-amber-500/30 transition-all shadow-lg"
+                className="flex items-start gap-6 p-6 sm:p-7 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-amber-500/30 transition-all shadow-lg"
               >
                 <div className="shrink-0 text-3xl font-black text-amber-400 font-mono">
                   {event.year}

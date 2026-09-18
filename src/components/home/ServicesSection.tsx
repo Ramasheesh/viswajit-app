@@ -94,11 +94,11 @@ export default function ServicesSection() {
                 <Link
                   href={`/services/${service.slug}`}
                   id={`service-card-${service.slug}`}
-                  className="group flex flex-col justify-between rounded-3xl p-5 sm:p-6 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl"
+                  className="group flex flex-col justify-between rounded-sm p-5 sm:p-6 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl"
                 >
                   <div>
                     {/* Card Image preview */}
-                    <div className="relative h-44 sm:h-48 w-full rounded-2xl overflow-hidden mb-5 bg-black border border-white/5">
+                    <div className="relative h-44 sm:h-48 w-full rounded-sm overflow-hidden mb-5 bg-black border border-white/5">
                       <Image
                         src={service.image || "/images/project_architectural.jpg"}
                         alt={service.title}
@@ -109,12 +109,12 @@ export default function ServicesSection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
                       
                       {/* Floating number badge on image */}
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-lg text-xs font-mono font-bold bg-black/80 backdrop-blur-md border border-white/15 text-amber-400">
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-sm text-xs font-mono font-bold bg-black/80 backdrop-blur-md border border-white/15 text-amber-400">
                         {service.number}
                       </div>
 
                       {/* Icon badge floating bottom-right */}
-                      <div className="absolute bottom-3 right-3 w-10 h-10 rounded-xl flex items-center justify-center bg-zinc-900/90 backdrop-blur-md border border-white/10 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all">
+                      <div className="absolute bottom-3 right-3 w-10 h-10 rounded-sm flex items-center justify-center bg-zinc-900/90 backdrop-blur-md border border-white/10 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all">
                         <Icon size={18} />
                       </div>
                     </div>

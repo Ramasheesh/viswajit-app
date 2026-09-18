@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Zap, Moon, Sun, Phone } from "lucide-react";
+import { Menu, X, Zap, Moon, Sun, Phone, ArrowRight } from "lucide-react";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,11 +18,13 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    setMounted(true);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -38,112 +40,118 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  // When mounted, accurately reflect theme state; default to dark for initial SSR
+  const isDark = mounted ? theme === "dark" : true;
+
+  // Header background:
+  // In Light Mode: always clean, crisp white glass with subtle border and shadow
+  // In Dark Mode: transparent at top, dark glass when scrolled
+  const headerBgClass = isDark
+    ? scrolled
+      ? "bg-zinc-950/90 border-b border-zinc-800/80 backdrop-blur-xl shadow-lg shadow-black/25"
+      : "bg-transparent border-b border-transparent"
+    : "bg-white/95 border-b border-zinc-200/90 backdrop-blur-xl shadow-md shadow-zinc-900/5";
+
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{
-          height: "4.5rem",
-          background: scrolled ? "rgba(10,10,10,0.92)" : "transparent",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled
-            ? "1px solid var(--border-subtle)"
-            : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.3)" : "none",
-        }}
+        className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${headerBgClass}`}
       >
-        <div
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between"
-        >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group"
+            id="navbar-logo"
+            className="flex items-center gap-3.5 group shrink-0"
             aria-label="Viswajit Electrical & Lighting Home"
           >
-            <div
-              className="relative w-9 h-9 md:w-10 md:h-10 rounded-xl flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
-              style={{ background: "var(--accent)" }}
-            >
-              <Zap size={18} className="text-black" fill="currentColor" />
+            <div className="w-10 h-10 rounded-xl gap-2 flex items-center justify-center bg-amber-500 text-black shadow-md shadow-amber-500/20 transition-transform duration-200 group-hover:scale-105 shrink-0">
+              <Zap size={20} fill="currentColor" />
             </div>
-            <div className="leading-none">
-              <div
-                className="font-bold text-sm md:text-base tracking-tight"
-                style={{ color: "var(--text-primary)" }}
+            <div className="flex flex-col justify-center">
+              <span
+                className={`font-black text-base sm:text-lg tracking-tight leading-none transition-colors duration-200 ${isDark ? "text-white" : "text-black font-black"
+                  }`}
               >
                 VISWAJIT
-              </div>
-              <div
-                className="font-light tracking-widest hidden sm:block"
-                style={{ color: "var(--accent)", fontSize: "0.6rem" }}
+              </span>
+              <span
+                className={`text-[10px] font-extrabold tracking-widest mt-1 leading-none transition-colors duration-200 ${isDark ? "text-amber-400" : "text-amber-700 font-black"
+                  }`}
               >
                 ELECTRICAL &amp; LIGHTING
-              </div>
+              </span>
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-1.5">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="relative px-4 py-2.5 text-[15px] font-medium transition-all duration-200 rounded-lg"
-                  style={{
-                    color:
-                      pathname === link.href
-                        ? "var(--accent)"
-                        : "var(--text-secondary)",
-                    background:
-                      pathname === link.href
-                        ? "var(--accent-subtle)"
-                        : "transparent",
-                  }}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
 
-          {/* Right actions */}
-          <div className="flex items-center gap-2.5">
-            {/* Theme toggle */}
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative px-4 py-2 rounded-sm text-sm tracking-wide transition-all duration-200 whitespace-nowrap group ${isActive
+                    ? isDark
+                      ? "text-amber-300 bg-amber-500/15 border border-amber-400/40 font-bold shadow-xs shadow-amber-500/10"
+                      : "text-amber-950 bg-amber-100 border border-amber-400/80 font-black shadow-xs"
+                    : isDark
+                      ? "text-zinc-200 font-semibold hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/80"
+                      : "text-zinc-950 font-bold hover:text-black hover:bg-zinc-200/80 border border-transparent hover:border-zinc-300"
+                    }`}
+                >
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {isActive && (
+                      <span className={`w-1.5 h-1.5 rounded-full ${isDark ? "bg-amber-400" : "bg-amber-600"} animate-pulse shrink-0`} />
+                    )}
+                    <span>{link.label}</span>
+                  </span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right Action Items */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            {/* Theme Toggle Button */}
             <button
               id="theme-toggle"
               onClick={toggleTheme}
-              className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200"
-              style={{
-                border: "1px solid var(--border-default)",
-                color: "var(--text-muted)",
-                background: "transparent",
-              }}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              type="button"
+              className={`w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-200 active:scale-95 shrink-0 cursor-pointer ${isDark
+                ? "border border-zinc-800 bg-zinc-900/90 text-amber-400 hover:border-amber-500/50 hover:bg-zinc-800 shadow-sm"
+                : "border border-zinc-300 bg-zinc-100 text-zinc-950 hover:border-zinc-400 hover:bg-zinc-200 hover:text-black shadow-sm font-bold"
+                }`}
+              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+              title={`Switch to ${isDark ? "light" : "dark"} mode`}
             >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              {isDark ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-zinc-950" />}
             </button>
 
-            {/* Start Project CTA */}
+            {/* Start Project CTA Button */}
             <Link
               href="/submit-project"
-              className="hidden md:flex btn btn-primary px-5 py-2.5 text-sm items-center gap-2 rounded-xl"
               id="nav-start-project"
+              className="hidden md:inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-sm font-extrabold text-sm tracking-wide bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 bg-[length:200%_auto] hover:bg-right text-black border border-amber-300/50 shadow-md shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 whitespace-nowrap shrink-0 group relative overflow-hidden"
             >
-              Start Project
+              {/* High-end light sweep sheen on hover */}
+              <span className="absolute inset-0 w-1/2 h-full bg-white/25 skew-x-12 -translate-x-full group-hover:translate-x-[350%] transition-transform duration-700 ease-out pointer-events-none" />
+
+              <span className="leading-none relative z-10 font-bold">Start Project</span>
+              <ArrowRight size={16} className="shrink-0 relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
 
-            {/* Mobile menu button */}
+            {/* Mobile Hamburger Toggle */}
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{
-                background: "var(--surface-1)",
-                border: "1px solid var(--border-default)",
-                color: "var(--text-primary)",
-              }}
+              type="button"
+              className={`lg:hidden w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-200 shrink-0 cursor-pointer ${isDark
+                ? "border border-zinc-800 bg-zinc-900 text-white hover:border-zinc-700 hover:bg-zinc-800"
+                : "border border-zinc-200 bg-zinc-100 text-zinc-800 hover:border-zinc-300 hover:bg-zinc-200 hover:text-zinc-950 shadow-sm"
+                }`}
               aria-label="Toggle mobile menu"
               aria-expanded={mobileOpen}
             >
@@ -153,107 +161,108 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile Drawer Navigation */}
       <AnimatePresence>
         {mobileOpen && (
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-40 lg:hidden"
-              style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(6px)" }}
+              className="fixed inset-0 z-50 lg:hidden bg-black/75 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Drawer */}
+            {/* Slide-over Drawer */}
             <motion.div
-              className="fixed right-0 top-0 bottom-0 w-80 z-40 lg:hidden flex flex-col"
-              style={{
-                background: "var(--surface-0)",
-                borderLeft: "1px solid var(--border-default)",
-              }}
+              className={`fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] z-50 lg:hidden flex flex-col shadow-2xl transition-colors duration-200 ${isDark
+                ? "bg-zinc-950 border-l border-zinc-800 text-white"
+                : "bg-white border-l border-zinc-200 text-zinc-900"
+                }`}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              transition={{ type: "spring", damping: 26, stiffness: 220 }}
             >
-              {/* Header */}
+              {/* Drawer Header */}
               <div
-                className="flex items-center justify-between p-5"
-                style={{ borderBottom: "1px solid var(--border-default)" }}
+                className={`flex items-center justify-between p-6 border-b transition-colors ${isDark ? "border-zinc-800" : "border-zinc-200"
+                  }`}
               >
                 <span
-                  className="font-bold tracking-widest text-xs uppercase"
-                  style={{ color: "var(--accent)" }}
+                  className={`font-extrabold tracking-widest text-xs uppercase ${isDark ? "text-amber-400" : "text-amber-600"
+                    }`}
                 >
-                  MENU
+                  Navigation
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{
-                    background: "var(--surface-1)",
-                    color: "var(--text-primary)",
-                  }}
+                  type="button"
+                  className={`w-9 h-9 rounded-sm flex items-center justify-center transition-all cursor-pointer ${isDark
+                    ? "bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
+                    : "bg-zinc-100 border border-zinc-200 text-zinc-700 hover:text-zinc-950 hover:bg-zinc-200"
+                    }`}
                   aria-label="Close menu"
                 >
                   <X size={18} />
                 </button>
               </div>
 
-              {/* Links */}
-              <nav className="flex-1 flex flex-col p-4 gap-1 overflow-y-auto">
-                {navLinks.map((link, i) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="flex items-center justify-between py-4 px-4 rounded-xl font-medium text-base transition-all duration-200"
-                    style={{
-                      color:
-                        pathname === link.href
-                          ? "var(--accent)"
-                          : "var(--text-primary)",
-                      background:
-                        pathname === link.href
-                          ? "var(--accent-subtle)"
-                          : "transparent",
-                    }}
-                  >
-                    {link.label}
-                    <span
-                      style={{
-                        color: "var(--accent)",
-                        fontSize: "0.7rem",
-                        opacity: 0.5,
-                      }}
+              {/* Navigation Links */}
+              <nav className="flex-1 flex flex-col p-5 gap-1.5 overflow-y-auto">
+                {navLinks.map((link, i) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center justify-between py-3.5 px-4 rounded-sm text-base transition-all duration-200 ${isActive
+                        ? isDark
+                          ? "bg-amber-500/15 text-amber-300 border border-amber-500/30 font-bold"
+                          : "bg-amber-100 text-amber-950 border border-amber-400/80 font-black"
+                        : isDark
+                          ? "text-zinc-200 font-semibold hover:bg-zinc-900 hover:text-white"
+                          : "text-zinc-950 font-bold hover:bg-zinc-100 hover:text-black"
+                        }`}
                     >
-                      0{i + 1}
-                    </span>
-                  </Link>
-                ))}
+                      <span>{link.label}</span>
+                      <span
+                        className={`text-xs font-mono ${isDark ? "text-amber-400/50" : "text-amber-600/70"
+                          }`}
+                      >
+                        0{i + 1}
+                      </span>
+                    </Link>
+                  );
+                })}
               </nav>
 
-              {/* Bottom */}
+              {/* Drawer Bottom Actions */}
               <div
-                className="p-5 flex flex-col gap-3"
-                style={{ borderTop: "1px solid var(--border-default)" }}
+                className={`p-6 border-t flex flex-col gap-3.5 transition-colors ${isDark
+                  ? "border-zinc-800 bg-zinc-950/60"
+                  : "border-zinc-200 bg-zinc-50/70"
+                  }`}
               >
                 <Link
                   href="/submit-project"
-                  className="btn btn-primary w-full py-4 text-base font-semibold rounded-xl"
                   id="mobile-start-project"
+                  className="w-full py-3.5 px-6 rounded-sm font-extrabold text-base text-center bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-black border border-amber-300/50 hover:bg-amber-400 shadow-lg shadow-amber-500/25 active:scale-95 transition-all leading-normal whitespace-nowrap flex items-center justify-center gap-2"
                 >
-                  Start Your Project
+                  <span>Start Your Project</span>
+                  <ArrowRight size={18} />
                 </Link>
                 <a
                   href="tel:+919876543210"
-                  className="btn btn-secondary w-full py-3.5 text-base font-medium items-center justify-center gap-2 rounded-xl"
                   id="mobile-call-btn"
+                  className={`w-full py-3.5 px-5 rounded-sm font-bold text-base text-center border flex items-center justify-center gap-2.5 transition-all whitespace-nowrap ${isDark
+                    ? "bg-zinc-900 border-zinc-800 text-white hover:bg-zinc-800"
+                    : "bg-white border-zinc-200 text-zinc-900 hover:bg-zinc-100 shadow-sm"
+                    }`}
                 >
-                  <Phone size={18} />
-                  Call Now
+                  <Phone size={18} className={isDark ? "text-amber-400" : "text-amber-600"} />
+                  <span>Call Us Directly</span>
                 </a>
               </div>
             </motion.div>

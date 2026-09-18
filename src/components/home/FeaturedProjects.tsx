@@ -85,7 +85,7 @@ export default function FeaturedProjects() {
               <Link
                 href={`/projects/${project.slug}`}
                 id={`project-card-${project.slug}`}
-                className={`group block relative overflow-hidden rounded-3xl w-full border border-zinc-800 shadow-2xl transition-all duration-300 hover:border-amber-500/50 hover:shadow-amber-500/10 ${
+                className={`group block relative overflow-hidden rounded-sm w-full border border-zinc-800 shadow-2xl transition-all duration-300 hover:border-amber-500/50 hover:shadow-amber-500/10 ${
                   i === 0 ? "h-[440px] sm:h-[500px]" : "h-[380px] sm:h-[440px]"
                 }`}
               >
@@ -102,7 +102,7 @@ export default function FeaturedProjects() {
                 <div className="absolute inset-0 transition-opacity duration-300 bg-gradient-to-t from-black via-black/65 to-transparent" />
 
                 {/* Category badge */}
-                <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase bg-black/80 backdrop-blur-md border border-white/15 text-amber-400 z-10">
+                <div className="absolute top-5 left-5 px-4 py-1.5 rounded-sm text-xs font-bold tracking-wider uppercase bg-black/80 backdrop-blur-md border border-white/15 text-amber-400 z-10">
                   {project.category}
                 </div>
 

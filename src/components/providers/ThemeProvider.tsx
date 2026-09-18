@@ -24,19 +24,29 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.setAttribute("data-theme", initial);
     document.documentElement.classList.remove("dark", "light");
     document.documentElement.classList.add(initial);
+    if (document.body) {
+      document.body.setAttribute("data-theme", initial);
+      document.body.classList.remove("dark", "light");
+      document.body.classList.add(initial);
+    }
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    localStorage.setItem("theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch (e) {}
     document.documentElement.setAttribute("data-theme", next);
     document.documentElement.classList.remove("dark", "light");
     document.documentElement.classList.add(next);
+    if (document.body) {
+      document.body.setAttribute("data-theme", next);
+      document.body.classList.remove("dark", "light");
+      document.body.classList.add(next);
+    }
   };
-
-  if (!mounted) return null;
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

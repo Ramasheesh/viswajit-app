@@ -84,8 +84,8 @@ export default function WhyUs() {
         >
           {reasons.map((reason) => (
             <motion.div key={reason.title} variants={itemVariants} className="flex">
-              <div className="rounded-3xl p-7 sm:p-8 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-start group">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
+              <div className="rounded-sm p-7 sm:p-8 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-start group">
+                <div className="w-14 h-14 rounded-sm flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
                   <reason.icon size={26} />
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-white group-hover:text-amber-300 transition-colors duration-200 leading-snug">

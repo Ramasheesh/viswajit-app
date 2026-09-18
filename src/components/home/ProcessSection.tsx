@@ -82,7 +82,7 @@ export default function ProcessSection() {
             const Icon = iconMap[step.icon] || CheckCircle;
             return (
               <motion.div key={step.number} variants={itemVariants} className="flex">
-                <div className="rounded-3xl p-8 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-start group relative overflow-hidden">
+                <div className="rounded-sm p-8 w-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-start group relative overflow-hidden">
                   {/* Connector line — visible on lg */}
                   {i < processSteps.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-zinc-800" />
@@ -91,10 +91,10 @@ export default function ProcessSection() {
                   <div className="relative z-10">
                     {/* Number and icon */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-sm font-black font-mono bg-amber-500 text-black shadow-md shadow-amber-500/20">
+                      <div className="w-12 h-12 rounded-sm flex items-center justify-center text-sm font-black font-mono bg-amber-500 text-black shadow-md shadow-amber-500/20">
                         {step.number}
                       </div>
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-zinc-800/80 text-zinc-400 group-hover:text-amber-400 group-hover:bg-amber-500/15 transition-all">
+                      <div className="w-12 h-12 rounded-sm flex items-center justify-center bg-zinc-800/80 text-zinc-400 group-hover:text-amber-400 group-hover:bg-amber-500/15 transition-all">
                         <Icon size={22} />
                       </div>
                     </div>

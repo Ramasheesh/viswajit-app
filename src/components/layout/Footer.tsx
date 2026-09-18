@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden pt-12 sm:pt-16 pb-6 bg-zinc-950 border-t border-white/5 w-full"
+      className="relative overflow-hidden pt-12 sm:pt-16 pb-6 bg-[var(--surface-0)] border-t border-[var(--border-default)] transition-colors duration-200 w-full"
     >
       {/* Background glow */}
       <div
@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="md:col-span-2 xl:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center"
+                className="w-10 h-10 rounded-sm flex items-center justify-center"
                 style={{ background: "var(--accent)" }}
               >
                 <Zap size={20} className="text-black" fill="currentColor" />
@@ -71,7 +71,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 hover:-translate-y-1 hover:border-amber-500/40"
+                    className="w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-200 hover:-translate-y-1 hover:border-amber-500/40"
                     style={{
                       background: "var(--surface-1)",
                       border: "1px solid var(--border-default)",

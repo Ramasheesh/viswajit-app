@@ -92,7 +92,7 @@ export default function ContactSection() {
             <a
               href={`tel:${company.phone.replace(/\s/g, "")}`}
               id="contact-call-btn"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/25 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-sm font-bold text-base bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/25 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
             >
               <Phone size={18} />
               <span>Call Consultation Line</span>
@@ -102,7 +102,7 @@ export default function ContactSection() {
               id="contact-whatsapp-btn"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-[#25D366] text-white hover:bg-[#20ba59] shadow-lg shadow-[#25D366]/20 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-sm font-bold text-base bg-[#25D366] text-white hover:bg-[#20ba59] shadow-lg shadow-[#25D366]/20 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
             >
               <MessageCircle size={18} />
               <span>Chat on WhatsApp</span>
@@ -110,7 +110,7 @@ export default function ContactSection() {
             <Link
               href="/submit-project"
               id="contact-submit-project"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-zinc-900 text-white border border-zinc-700 hover:bg-zinc-800 transition-all duration-200 hover:-translate-y-0.5 shadow-md active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-sm font-bold text-base bg-zinc-900 text-white border border-zinc-700 hover:bg-zinc-800 transition-all duration-200 hover:-translate-y-0.5 shadow-md active:scale-95"
             >
               <span>Submit Project RFP</span>
               <ArrowRight size={18} />
@@ -131,10 +131,10 @@ export default function ContactSection() {
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group flex flex-col justify-between p-7 rounded-3xl bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl"
+              className="group flex flex-col justify-between p-7 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-300 hover:-translate-y-1.5 shadow-xl"
             >
               <div>
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
+                <div className="w-14 h-14 rounded-sm flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
                   <item.icon size={24} />
                 </div>
                 

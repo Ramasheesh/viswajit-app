@@ -98,7 +98,7 @@ export default function SiteVisitCTA() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <div className="rounded-3xl p-7 sm:p-10 relative overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
+            <div className="rounded-sm p-7 sm:p-10 relative overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
               {/* Top accent */}
               <div
                 className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-transparent"
@@ -165,7 +165,7 @@ export default function SiteVisitCTA() {
                         onChange={(e) =>
                           setForm({ ...form, [f.field]: e.target.value })
                         }
-                        className="w-full px-4 py-3 rounded-xl text-base outline-none transition-all duration-200 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400"
+                        className="w-full px-4 py-3 rounded-sm text-base outline-none transition-all duration-200 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400"
                         style={{
                           borderColor: errors[f.field] ? "#ef4444" : undefined,
                         }}
@@ -192,14 +192,14 @@ export default function SiteVisitCTA() {
                       onChange={(e) =>
                         setForm({ ...form, date: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-xl text-base outline-none transition-all duration-200 bg-zinc-950 border border-zinc-800 text-white focus:border-amber-400"
+                      className="w-full px-4 py-3 rounded-sm text-base outline-none transition-all duration-200 bg-zinc-950 border border-zinc-800 text-white focus:border-amber-400"
                     />
                   </div>
 
                   <button
                     type="submit"
                     id="site-visit-submit"
-                    className="w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 rounded-xl font-bold text-base transition-all duration-200 hover:-translate-y-0.5 bg-amber-500 text-black hover:bg-amber-400 shadow-lg shadow-amber-500/25 mt-3"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 rounded-sm font-bold text-base transition-all duration-200 hover:-translate-y-0.5 bg-amber-500 text-black hover:bg-amber-400 shadow-lg shadow-amber-500/25 mt-3"
                   >
                     Request Site Visit
                     <ArrowRight size={18} />

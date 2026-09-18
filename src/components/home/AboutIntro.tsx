@@ -70,7 +70,7 @@ export default function AboutIntro() {
               {capabilities.map((cap) => (
                 <div
                   key={cap}
-                  className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-zinc-200 px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 shadow-sm hover:border-amber-500/40 transition-colors"
+                  className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-zinc-200 px-4 py-2.5 rounded-sm bg-zinc-900 border border-zinc-800 shadow-sm hover:border-amber-500/40 transition-colors"
                 >
                   <CheckCircle2 size={16} className="text-amber-400 shrink-0" />
                   <span>{cap}</span>
@@ -81,7 +81,7 @@ export default function AboutIntro() {
             <Link
               href="/about"
               id="about-learn-more"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-sm font-bold text-base bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 hover:-translate-y-0.5"
             >
               Learn Our Full Story
               <ArrowRight size={20} />
@@ -95,7 +95,7 @@ export default function AboutIntro() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-zinc-900 border border-zinc-700/80 shadow-2xl">
+            <div className="rounded-sm p-8 sm:p-10 relative overflow-hidden bg-zinc-900 border border-zinc-700/80 shadow-2xl">
               {/* Top accent line */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600" />
 

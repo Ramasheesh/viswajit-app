@@ -79,7 +79,7 @@ export default function LocationsSection() {
             <motion.div key={loc.id} variants={itemVariants}>
               <Link
                 href={`/locations#${loc.name.toLowerCase().replace(/\s+/g, "-")}`}
-                className="group block rounded-2xl p-5 md:p-6 bg-zinc-900 border border-zinc-800 transition-all duration-200 hover:-translate-y-1 hover:border-amber-500/40 hover:bg-zinc-800/80 shadow-lg"
+                className="group block rounded-sm p-5 md:p-6 bg-zinc-900 border border-zinc-800 transition-all duration-200 hover:-translate-y-1 hover:border-amber-500/40 hover:bg-zinc-800/80 shadow-lg"
               >
                 <div className="flex items-center justify-between mb-3">
                   <MapPin size={22} className="text-amber-400 group-hover:scale-110 transition-transform" />
@@ -100,7 +100,7 @@ export default function LocationsSection() {
 
         {/* CTA Banner */}
         <motion.div
-          className="mt-12 sm:mt-16 rounded-3xl p-8 sm:p-12 md:p-14 text-center relative overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl"
+          className="mt-12 sm:mt-16 rounded-sm p-8 sm:p-12 md:p-14 text-center relative overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -121,7 +121,7 @@ export default function LocationsSection() {
             <Link
               href="/contact"
               id="location-contact"
-              className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-amber-500 text-black hover:bg-amber-400 transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-amber-500/20"
+              className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-sm font-bold text-base sm:text-lg bg-amber-500 text-black hover:bg-amber-400 transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-amber-500/20"
             >
               Get in Touch
               <ArrowRight size={20} />
