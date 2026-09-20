@@ -59,7 +59,7 @@ export default function WhyUs() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">
             <Sparkles size={15} />
-            <span>Why Choose Viswajit</span>
+            <span>Why Choose Vishvajeet</span>
           </div>
           <h2
             id="why-us-heading"

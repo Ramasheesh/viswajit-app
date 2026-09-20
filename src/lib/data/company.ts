@@ -5,8 +5,8 @@ export const company: CompanyInfo = {
   tagline: "Design. Visualize. Execute.",
   description:
     "From concept to installation, we transform spaces through intelligent lighting design and precision electrical execution. Trusted by architects, builders and homeowners across India.",
-  phone: "+91 98765 43210",
-  whatsapp: "+919876543210",
+  phone: "+91 8108382618",
+  whatsapp: "+918108382618",
   email: "info@brightspark.in",
   address: "123, Civil Lines, Lucknow, Uttar Pradesh – 226001",
   city: "Lucknow",

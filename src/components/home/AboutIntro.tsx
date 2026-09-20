@@ -44,7 +44,7 @@ export default function AboutIntro() {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 mb-5 text-xs sm:text-sm font-bold uppercase tracking-widest">
               <Sparkles size={15} />
-              <span>About Viswajit</span>
+              <span>About Vishvajeet</span>
             </div>
 
             <h2
@@ -62,7 +62,7 @@ export default function AboutIntro() {
             </p>
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-8">
               Trusted by architects, interior designers, property developers, and luxury homeowners across North India,
-              Viswajit Electrical &amp; Lighting delivers turnkey solutions combining dedicated studio design with licensed, safety-audited on-site execution.
+              Bright Spark Electrical &amp; Lighting delivers turnkey solutions combining dedicated studio design with licensed, safety-audited on-site execution.
             </p>
 
             {/* Capabilities badges */}

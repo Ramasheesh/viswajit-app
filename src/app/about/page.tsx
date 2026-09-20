@@ -6,7 +6,7 @@ import { company } from "@/lib/data/company";
 import { timeline } from "@/lib/data/testimonials";
 
 export const metadata: Metadata = {
-  title: "About | Viswajit Electrical & Lighting",
+  title: "About | Bright spark  Electrical & Lighting",
   description:
     "15+ years of professional architectural lighting design and electrical contracting. Our journey, team and engineering values.",
 };
@@ -49,7 +49,7 @@ export default function AboutPage() {
             </h2>
 
             <p className="text-base sm:text-lg text-zinc-300 leading-relaxed mb-4">
-              Founded in 2010 as an electrical contracting firm, Viswajit Electrical &amp; Lighting has grown into a comprehensive lighting and electrical engineering studio — offering end-to-end design, photorealistic Dialux visualization, and certified on-ground turnkey execution.
+              Founded in 2010 as an electrical contracting firm, Bright spark  Electrical &amp; Lighting has grown into a comprehensive lighting and electrical engineering studio — offering end-to-end design, photorealistic Dialux visualization, and certified on-ground turnkey execution.
             </p>
             <p className="text-base sm:text-lg text-zinc-400 leading-relaxed mb-8">
               Today we partner with prominent architects, interior designers, corporate developers, luxury hoteliers, and private estate owners across North India. We bring the same scientific photometrics and execution rigor to every space, regardless of complexity.
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 sizes="(max-width: 1024px) 100vw, 500px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
-              
+
               {/* Overlay pill */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-sm bg-zinc-950/90 backdrop-blur-md border border-zinc-800 text-white flex items-center justify-between">
                 <div>

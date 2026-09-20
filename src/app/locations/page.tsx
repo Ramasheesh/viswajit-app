@@ -4,7 +4,7 @@ import { MapPin, ArrowRight } from "lucide-react";
 import { locations } from "@/lib/data/locations";
 
 export const metadata: Metadata = {
-  title: "Locations | Viswajit Electrical & Lighting",
+  title: "Locations | Bright spark  Electrical & Lighting",
   description: "We serve 50+ locations across North India. Find our service areas including Lucknow, Kanpur, Delhi, Noida, Gurgaon, Jaipur and more.",
 };
 

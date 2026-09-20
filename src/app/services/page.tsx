@@ -5,7 +5,7 @@ import { ArrowRight, PenTool, Layers, Building2, Home, Zap, Key, BarChart3, Wren
 import { services } from "@/lib/data/services";
 
 export const metadata: Metadata = {
-  title: "Services | Viswajit Electrical & Lighting",
+  title: "Services | Bright spark  Electrical & Lighting",
   description: "Professional 2D lighting design, 3D visualization, architectural lighting, interior lighting, electrical contracting and turnkey project services.",
 };
 

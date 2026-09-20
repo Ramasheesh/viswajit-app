@@ -14,7 +14,7 @@ import WhyUs from "@/components/home/WhyUs";
 import SiteVisitCTA from "@/components/home/SiteVisitCTA";
 
 export const metadata: Metadata = {
-  title: "Viswajit Electrical & Lighting | Professional Lighting Design & Electrical Contractor",
+  title: "Bright spark  Electrical & Lighting | Professional Lighting Design & Electrical Contractor",
   description:
     "Expert lighting design, 2D planning, 3D visualization and turnkey electrical contracting across North India. Design. Visualize. Execute.",
 };
