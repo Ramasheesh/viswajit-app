@@ -44,13 +44,13 @@ export default function Footer() {
                   className="font-bold text-base tracking-tight"
                   style={{ color: "var(--text-primary)" }}
                 >
-                  VISWAJIT
+                  BRIGHT SPARK
                 </div>
                 <div
                   className="font-light tracking-widest"
                   style={{ color: "var(--accent)", fontSize: "0.6rem" }}
                 >
-                  ELECTRICAL &amp; LIGHTING
+                  ELECTRICAL
                 </div>
               </div>
             </Link>
@@ -208,7 +208,7 @@ export default function Footer() {
             className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 text-sm"
             style={{ color: "var(--text-muted)" }}
           >
-            <span>&copy; {year} Viswajit Electrical &amp; Lighting</span>
+            <span>&copy; {year} Bright Spark Electrical</span>
             <span className="hidden sm:block" style={{ color: "var(--border-default)" }}>|</span>
             <div className="flex gap-5">
               <Link href="/privacy" className="animated-underline">

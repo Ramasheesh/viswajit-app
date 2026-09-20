@@ -9,8 +9,8 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
   title: {
-    default: "Viswajit Electrical & Lighting | Professional Lighting Design & Electrical Contractor",
-    template: "%s | Viswajit Electrical & Lighting",
+    default: "Bright Spark Electrical | Professional Lighting Design & Electrical Contractor",
+    template: "%s | Bright Spark Electrical",
   },
   description:
     "Professional lighting design, 2D planning, 3D visualization and electrical contracting across North India. Design. Visualize. Execute.",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "turnkey electrical project",
     "lighting contractor UP",
   ],
-  authors: [{ name: "Viswajit Electrical & Lighting" }],
+  authors: [{ name: "Bright Spark Electrical" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://viswajitelectrical.com",
-    siteName: "Viswajit Electrical & Lighting",
-    title: "Viswajit Electrical & Lighting | Professional Lighting Design & Electrical Contractor",
+    url: "https://brightspark.in",
+    siteName: "Bright Spark Electrical",
+    title: "Bright Spark Electrical | Professional Lighting Design & Electrical Contractor",
     description:
       "Professional lighting design, 2D planning, 3D visualization and turnkey electrical contracting across North India.",
     images: [
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
         url: "/images/hero_bg.jpg",
         width: 1200,
         height: 630,
-        alt: "Viswajit Electrical & Lighting",
+        alt: "Bright Spark Electrical",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Viswajit Electrical & Lighting",
+    title: "Bright Spark Electrical",
     description: "Professional Lighting Design & Electrical Contractor",
   },
   robots: {

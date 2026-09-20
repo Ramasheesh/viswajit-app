@@ -63,7 +63,7 @@ export default function Navbar() {
             href="/"
             id="navbar-logo"
             className="flex items-center gap-3.5 group shrink-0"
-            aria-label="Viswajit Electrical & Lighting Home"
+            aria-label="Bright Spark Electrical Home"
           >
             <div className="w-10 h-10 rounded-xl gap-2 flex items-center justify-center bg-amber-500 text-black shadow-md shadow-amber-500/20 transition-transform duration-200 group-hover:scale-105 shrink-0">
               <Zap size={20} fill="currentColor" />
@@ -73,13 +73,13 @@ export default function Navbar() {
                 className={`font-black text-base sm:text-lg tracking-tight leading-none transition-colors duration-200 ${isDark ? "text-white" : "text-black font-black"
                   }`}
               >
-                VISWAJIT
+                BRIGHT SPARK
               </span>
               <span
                 className={`text-[10px] font-extrabold tracking-widest mt-1 leading-none transition-colors duration-200 ${isDark ? "text-amber-400" : "text-amber-700 font-black"
                   }`}
               >
-                ELECTRICAL &amp; LIGHTING
+                ELECTRICAL
               </span>
             </div>
           </Link>

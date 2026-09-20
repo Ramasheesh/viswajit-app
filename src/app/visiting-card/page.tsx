@@ -66,8 +66,8 @@ export default function VisitingCardPage() {
                       <Zap size={16} className="text-black" fill="currentColor" />
                     </div>
                     <div>
-                      <div className="font-black text-xs tracking-tight text-white">VISWAJIT</div>
-                      <div className="font-light tracking-widest text-amber-400" style={{ fontSize: "0.5rem" }}>ELECTRICAL & LIGHTING</div>
+                      <div className="font-black text-xs tracking-tight text-white">BRIGHT SPARK</div>
+                      <div className="font-light tracking-widest text-amber-400" style={{ fontSize: "0.5rem" }}>ELECTRICAL</div>
                     </div>
                   </div>
                   {/* Glow orb */}
@@ -75,7 +75,7 @@ export default function VisitingCardPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-black text-white mb-0.5">Viswajit Kumar</h2>
+                  <h2 className="text-xl font-black text-white mb-0.5">Bright Spark Electrical</h2>
                   <p className="text-xs font-light tracking-wide text-amber-400 mb-3">Lighting & Electrical Contractor</p>
                   <p className="text-xs text-neutral-400 leading-relaxed">
                     2D Lighting Design · 3D Visualization · Electrical Contracting
@@ -107,7 +107,7 @@ export default function VisitingCardPage() {
               <div className="p-8 h-full flex gap-6 relative z-10">
                 {/* Left — company info */}
                 <div className="flex-1">
-                  <h3 className="font-black text-sm text-white mb-1">VISWAJIT</h3>
+                  <h3 className="font-black text-sm text-white mb-1">BRIGHT SPARK</h3>
                   <p className="text-amber-400 font-light tracking-widest mb-4" style={{ fontSize: "0.5rem" }}>DESIGN · VISUALIZE · EXECUTE</p>
                   <div className="space-y-2 text-xs text-neutral-400">
                     {[
@@ -206,7 +206,7 @@ export default function VisitingCardPage() {
           </button>
           <button
             id="card-share-btn"
-            onClick={() => { if (navigator.share) navigator.share({ title: "Viswajit Electrical", url: window.location.href }); }}
+            onClick={() => { if (navigator.share) navigator.share({ title: "Bright Spark Electrical", url: window.location.href }); }}
             className="flex flex-col items-center gap-2 py-4 rounded-xl font-semibold text-xs btn-primary"
           >
             <Share2 size={20} />
@@ -222,7 +222,7 @@ export default function VisitingCardPage() {
           {[
             { icon: Phone, label: company.phone },
             { icon: Mail, label: company.email },
-            { icon: Globe, label: "viswajitelectrical.com" },
+            { icon: Globe, label: "brightspark.in" },
             { icon: MapPin, label: company.address },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-3 text-sm" style={{ color: "var(--text-secondary)" }}>
