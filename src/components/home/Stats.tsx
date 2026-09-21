@@ -57,7 +57,7 @@ export default function Stats() {
   const stats: StatProps[] = [
     { value: 15, suffix: "+", label: "Years Experience", description: "Trusted expertise since 2010" },
     { value: 250, suffix: "+", label: "Projects Delivered", description: "Residential, commercial & beyond" },
-    { value: 50, suffix: "+", label: "Locations Served", description: "Across North & Central India" },
+    { value: 300, suffix: "+", label: "Locations Served", description: "Across Mumbai & Navi Mumbai" },
     { value: 100, suffix: "%", label: "Client Satisfaction", description: "Design · Execute · Deliver" },
   ];
 

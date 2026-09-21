@@ -38,7 +38,7 @@ export default function LocationsPage() {
           <div className="text-center">
             <div className="text-6xl mb-3">🗺️</div>
             <p className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>
-              North & Central India
+              Mumbai & Navi Mumbai
             </p>
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
               Interactive map — connect Google Maps for live data
