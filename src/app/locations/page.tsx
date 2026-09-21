@@ -20,7 +20,7 @@ export default function LocationsPage() {
             Areas <span className="text-gradient">We Serve</span>
           </h1>
           <p className="text-base max-w-xl" style={{ color: "var(--text-secondary)" }}>
-            Delivering professional lighting design and electrical contracting across 50+ locations in North and Central India.
+            Delivering professional lighting design and electrical contracting across 300+ locations in Mumbai & Navi Mumbai.
           </p>
         </div>
       </div>

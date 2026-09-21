@@ -107,7 +107,7 @@ export default function LocationsSection() {
         >
           {/* Background glow */}
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.12)_0%,transparent_70%)]" />
-          
+
           <div className="relative z-10">
             <p className="text-xs sm:text-sm tracking-widest uppercase mb-3 font-bold text-amber-400">
               Your city not listed?
@@ -116,7 +116,7 @@ export default function LocationsSection() {
               We travel for the right project.
             </h3>
             <p className="text-base sm:text-lg text-zinc-300 mb-8 max-w-xl mx-auto leading-relaxed">
-              Contact us to discuss your project location. We have delivered projects across North and Central India.
+              Contact us to discuss your project location. We have delivered projects across Mumbai & Navi Mumbai.
             </p>
             <Link
               href="/contact"
