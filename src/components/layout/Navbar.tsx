@@ -254,7 +254,7 @@ export default function Navbar() {
                   <ArrowRight size={18} />
                 </Link>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+918108382618"
                   id="mobile-call-btn"
                   className={`w-full py-3.5 px-5 rounded-sm font-bold text-base text-center border flex items-center justify-center gap-2.5 transition-all whitespace-nowrap ${isDark
                     ? "bg-zinc-900 border-zinc-800 text-white hover:bg-zinc-800"

@@ -10,7 +10,7 @@ export default function MobileStickyBar() {
     >
       <div className="flex items-center gap-2">
         <a
-          href="tel:+919876543210"
+          href="tel:+918108382618"
           id="sticky-call-btn"
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-sm font-bold text-sm bg-zinc-100 border border-zinc-200 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-900 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800 transition-colors"
         >
@@ -18,7 +18,7 @@ export default function MobileStickyBar() {
           Call
         </a>
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/918108382618"
           id="sticky-whatsapp-btn"
           target="_blank"
           rel="noopener noreferrer"

@@ -36,8 +36,8 @@ export default function ContactSection() {
     {
       icon: MapPin,
       label: "Design Studio",
-      value: "Civil Lines, Lucknow",
-      sub: "Uttar Pradesh – 226001 (By Appointment)",
+      value: "Bhandup East, Mumbai",
+      sub: "Maharashtra – 400042 (By Appointment)",
       action: "Visit studio",
       href: "/contact#map",
     },
@@ -137,7 +137,7 @@ export default function ContactSection() {
                 <div className="w-14 h-14 rounded-sm flex items-center justify-center mb-6 bg-amber-500/15 text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
                   <item.icon size={24} />
                 </div>
-                
+
                 <div className="text-xs font-bold tracking-widest uppercase text-amber-400 mb-2">
                   {item.label}
                 </div>
