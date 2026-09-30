@@ -1,9 +1,13 @@
+export type ProjectStatus = "completed" | "ongoing";
+
 export interface Project {
   id: string;
   title: string;
   slug: string;
   location: string;
   category: string;
+  status: ProjectStatus;
+  currentStage?: string;
   year: number;
   description: string;
   services: string[];
@@ -12,6 +16,7 @@ export interface Project {
   twoDImages: string[];
   threeDImages: string[];
   completedImages: string[];
+  executionImages?: string[];
   client?: string;
   area?: string;
   timeline?: string;
@@ -19,6 +24,12 @@ export interface Project {
   lightingConcept?: string;
   execution?: string;
   featured?: boolean;
+}
+
+export interface ServiceCompletedWork {
+  title: string;
+  image: string;
+  category: string;
 }
 
 export interface Service {
@@ -31,6 +42,8 @@ export interface Service {
   icon: string;
   image?: string;
   features: string[];
+  gallery?: string[];
+  completedWorks?: ServiceCompletedWork[];
 }
 
 export interface Location {

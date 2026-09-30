@@ -20,21 +20,21 @@ const stages = [
   {
     id: "3d",
     label: "VISUALIZE",
-    title: "3D Visualization",
+    title: "3D Visualization & Photometrics",
     description:
-      "Before a single fixture is installed, you see your space exactly as it will look. Photorealistic 3D renders with accurate light simulation — eliminating surprises, building confidence.",
-    image: "/images/project_3d_render.jpg",
-    tag: "3D RENDER",
+      "Before a single fixture is installed, you see your space exactly as it will look. Photorealistic simulations with accurate light bounce, color temperature and lux distribution.",
+    image: "/images/mural_wall_cove_commissioning.jpg",
+    tag: "3D SIMULATION",
     color: "var(--accent)",
   },
   {
     id: "executed",
     label: "EXECUTE",
-    title: "Completed Project",
+    title: "On-Site Execution & Finished Work",
     description:
-      "The installed result matches the vision — on time and on budget. Our team executes every detail, from rough-in to final commissioning and handover.",
-    image: "/images/project_residential.jpg",
-    tag: "INSTALLED",
+      "From active site rough-in and profile extrusions to final handover. The delivered architectural lighting matches the initial design vision with zero compromises.",
+    image: "/images/luxury_living_room_completed.jpg",
+    tag: "COMMISSIONED",
     color: "#34d399",
   },
 ];
